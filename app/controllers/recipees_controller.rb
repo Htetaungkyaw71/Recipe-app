@@ -1,5 +1,5 @@
 class RecipeesController < ApplicationController
-  before_action :set_recipee, only: %i[ show edit update destroy ]
+  before_action :set_recipee, only: %i[show edit update destroy]
 
   # GET /recipees or /recipees.json
   def index
@@ -7,8 +7,7 @@ class RecipeesController < ApplicationController
   end
 
   # GET /recipees/1 or /recipees/1.json
-  def show
-  end
+  def show; end
 
   # GET /recipees/new
   def new
@@ -16,8 +15,7 @@ class RecipeesController < ApplicationController
   end
 
   # GET /recipees/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /recipees or /recipees.json
   def create
@@ -25,7 +23,7 @@ class RecipeesController < ApplicationController
 
     respond_to do |format|
       if @recipee.save
-        format.html { redirect_to recipee_url(@recipee), notice: "Recipee was successfully created." }
+        format.html { redirect_to recipee_url(@recipee), notice: 'Recipee was successfully created.' }
         format.json { render :show, status: :created, location: @recipee }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +36,7 @@ class RecipeesController < ApplicationController
   def update
     respond_to do |format|
       if @recipee.update(recipee_params)
-        format.html { redirect_to recipee_url(@recipee), notice: "Recipee was successfully updated." }
+        format.html { redirect_to recipee_url(@recipee), notice: 'Recipee was successfully updated.' }
         format.json { render :show, status: :ok, location: @recipee }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +50,20 @@ class RecipeesController < ApplicationController
     @recipee.destroy
 
     respond_to do |format|
-      format.html { redirect_to recipees_url, notice: "Recipee was successfully destroyed." }
+      format.html { redirect_to recipees_url, notice: 'Recipee was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_recipee
-      @recipee = Recipee.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def recipee_params
-      params.require(:recipee).permit(:name, :preparation_time, :cooking_time, :description, :public)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_recipee
+    @recipee = Recipee.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def recipee_params
+    params.require(:recipee).permit(:name, :preparation_time, :cooking_time, :description, :public)
+  end
 end
