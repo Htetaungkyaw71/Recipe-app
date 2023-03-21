@@ -20,6 +20,7 @@ class RecipeesController < ApplicationController
   # POST /recipees or /recipees.json
   def create
     @recipee = Recipee.new(recipee_params)
+    @recipee.user_id = current_user.id
 
     respond_to do |format|
       if @recipee.save

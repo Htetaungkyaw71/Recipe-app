@@ -5,6 +5,44 @@
 <div>
   <%= link_to "Edit this recipee", edit_recipee_path(@recipee) %> |
   <%= link_to "Back to recipees", recipees_path %>
+  <%= form_with(
+    model: RecipeFood.new,
+    url: recipee_recipe_foods_path(@recipee),
+    method: :post,
+  ) do |form| %>
+  <% if @recipee.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@recipee.errors.count, "error") %> prohibited this recipee from being saved:</h2>
 
-  <%= button_to "Destroy this recipee", @recipee, method: :delete %>
+      <ul>
+        <% @recipee.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :quantity, style: "display: block" %>
+    <%= form.number_field :quantity %>
+  </div>
+
+  <div>
+    <%= form.label :food_id, style: "display: block" %>
+    <%= form.collection_select(:food_id, Food.all, :id, :name, prompt: true) %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+    <% @recipe_foods.each do |recipe_food| %>
+        <%= button_to "Destroy this food", recipee_recipe_food_path(@recipee,recipe_food) , method: :delete %>
+      <%= recipe_food.food.name %>
+      <%= recipe_food.quantity %>
+      <%= recipe_food.food.measurement_unit %>
+      <%= recipe_food.food.price * recipe_food.quantity  %>
+    <% end %>
+
+
 </div>

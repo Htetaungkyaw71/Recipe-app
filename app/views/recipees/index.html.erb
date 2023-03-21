@@ -4,11 +4,21 @@
 
 <div id="recipees">
   <% @recipees.each do |recipee| %>
-    <%= render recipee %>
+      <p>
+    <strong>Name:</strong>
+    <%= recipee.name %>
+  </p>
+    <p>
+    <strong>Description:</strong>
+    <%= recipee.description %>
+  </p>
     <p>
       <%= link_to "Show this recipee", recipee %>
     </p>
+      <%= button_to "Destroy this recipee", recipee, method: :delete %>
   <% end %>
 </div>
+
+
 
 <%= link_to "New recipee", new_recipee_path %>
