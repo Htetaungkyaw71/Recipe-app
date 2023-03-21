@@ -10,14 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_20_104423) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_21_052413) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "foods", force: :cascade do |t|
     t.string "name"
     t.string "measurement_unit"
-    t.integer "quantity"
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
