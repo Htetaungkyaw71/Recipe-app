@@ -6,10 +6,8 @@ class RecipeesController < ApplicationController
     @recipees = Recipee.all
   end
 
-  # GET /recipees/1 or /recipees/1.jsonW
-  def show
-    @recipe_foods = RecipeFood.where(recipee_id: params[:id])
-  end
+  # GET /recipees/1 or /recipees/1.json
+  def show; end
 
   # GET /recipees/new
   def new
