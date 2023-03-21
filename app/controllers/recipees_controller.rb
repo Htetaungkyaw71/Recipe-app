@@ -6,8 +6,10 @@ class RecipeesController < ApplicationController
     @recipees = Recipee.all
   end
 
-  # GET /recipees/1 or /recipees/1.json
-  def show; end
+  # GET /recipees/1 or /recipees/1.jsonW
+  def show
+    @recipe_foods = RecipeFood.where(recipee_id: params[:id])
+  end
 
   # GET /recipees/new
   def new
@@ -20,6 +22,7 @@ class RecipeesController < ApplicationController
   # POST /recipees or /recipees.json
   def create
     @recipee = Recipee.new(recipee_params)
+    @recipee.user_id = current_user.id
 
     respond_to do |format|
       if @recipee.save
