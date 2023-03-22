@@ -1,15 +1,16 @@
-<p style="color: green"><%= notice %></p>
+<p style="color: green; text-align:center"><%= notice %></p>
 
+<div class="show_container">
 <%= render @recipee %>
 
-<div>
-  <%= link_to "Edit this recipee", edit_recipee_path(@recipee) %> |
-  <%= link_to "Back to recipees", recipees_path %>
+<div class="recipe_form">
+
   <%= form_with(
     model: RecipeFood.new,
     url: recipee_recipe_foods_path(@recipee),
     method: :post,
   ) do |form| %>
+
   <% if @recipee.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(@recipee.errors.count, "error") %> prohibited this recipee from being saved:</h2>
@@ -22,27 +23,50 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :quantity, style: "display: block" %>
+  <div class="show_input">
+   <%= form.label :quantity %>
     <%= form.number_field :quantity %>
   </div>
-
-  <div>
-    <%= form.label :food_id, style: "display: block" %>
+ 
+  <div class="show_input">
+    <%= form.label :food_id %>
     <%= form.collection_select(:food_id, Food.all, :id, :name, prompt: true) %>
   </div>
-  <div>
-    <%= form.submit %>
+  <div class="show_input">
+    <%= form.submit  "Add ingredient" %>
   </div>
 <% end %>
+</div>
 
-    <% @recipe_foods.each do |recipe_food| %>
-        <%= button_to "Destroy this food", recipee_recipe_food_path(@recipee,recipe_food) , method: :delete %>
-      <%= recipe_food.food.name %>
-      <%= recipe_food.quantity %>
-      <%= recipe_food.food.measurement_unit %>
-      <%= recipe_food.food.price * recipe_food.quantity  %>
+<hr>
+
+<table class="show_table">
+  <tr class="show_tr">
+    <th class="show_th">Food</th>
+    <th class="show_th">Quantity</th>
+    <th class="show_th">Value</th>
+    <th class="show_th">Actions</th>
+  </tr>
+  <% @recipe_foods.each do |recipe_food| %>
+  <tr class="show_tr">
+    <td class="show_td"><%= recipe_food.food.name %></td>
+    <td class="show_td"> <%= recipe_food.quantity %> <%= recipe_food.food.measurement_unit %></td>
+    <td class="show_td">$ <%= recipe_food.food.price * recipe_food.quantity  %></td>
+    <td class="show_td">
+        <%= button_to "Remove", recipee_recipe_food_path(@recipee,recipe_food) , method: :delete %>
+    </td>
+  </tr>
     <% end %>
 
 
+  
+
+</table>
+
+
+ 
+
+
 </div>
+
+

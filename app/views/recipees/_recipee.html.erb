@@ -1,27 +1,29 @@
 <div id="<%= dom_id recipee %>">
-  <p>
-    <strong>Name:</strong>
-    <%= recipee.name %>
-  </p>
 
-  <p>
-    <strong>Preparation time:</strong>
-    <%= recipee.preparation_time %>
-  </p>
+  <h1 style="text-align:center"><%= recipee.name %></h1>
+  <div class="recipe_show">
+  <div>
+    <p>
+      <strong>Preparation time:</strong>
 
-  <p>
-    <strong>Cooking time:</strong>
-    <%= recipee.cooking_time %>
-  </p>
+      <%= recipee.preparation_time %> 
+      <%= recipee.preparation_time > 1 ?  'hours' : 'hour' %> 
 
-  <p>
-    <strong>Description:</strong>
-    <%= recipee.description %>
-  </p>
+    </p>
+    <p>
+      <strong>Cooking time:</strong>
+        <%= recipee.cooking_time %> 
+        <%= recipee.cooking_time > 1 ?  'hours' : 'hour' %> 
+    </p>
+    <p>
+      <%= recipee.description %>
+    </p>
+  </div>
 
-  <p>
-    <strong>Public:</strong>
-    <%= recipee.public %>
-  </p>
+     <%= button_to recipee_path(recipee), method: :put,  params: { recipee: { public: !recipee.public}}, class: recipee.public ? 'public_btn' : 'private_btn' do %>
+      <span class="font-bold"> <%= recipee.public ? 'Public' : 'Private'  %></span>
+    <% end %>
+  </div>
+
 
 </div>

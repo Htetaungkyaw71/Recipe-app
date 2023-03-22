@@ -1,36 +1,33 @@
 <p style="color: green"><%= notice %></p>
-
-
-
 <div id="recipees">
 
 <div>
 <%= link_to "New recipee", new_recipee_path %>
-  <h1>Recipees</h1>
+  <h1>Public Recipes</h1>
   <% @recipees.each do |recipee| %>
-
   <div class="recipe_card">
       <div>
       <strong> <%= recipee.name %></strong>
-        <%= button_to "Remove", recipee, method: :delete %>
+        <p>
+        By <%= recipee.user.name %>
+        </p>
       </div>
   
       <p>
-        <%= recipee.description %>
+          <strong>Total Food Items : <%= recipee.foods.length %></strong>
+          <br>
+           <br>
+          <strong>Total Price : $<%= recipee.total %> </strong>
       </p>
 
   </div>
-
-
-  <div class="show">
+    <div class="show">
   <%= link_to "Show detail", recipee %>
   </div>
+
 
   <% end %>
 </div>
 
 </div>
-
-
-
 
