@@ -11,12 +11,11 @@ class Recipee < ApplicationRecord
   after_save :total
 
   def total
-    result = 0 
-    recipe_foods.each do |recipe_food| 
+    result = 0
+    recipe_foods.each do |recipe_food|
       result += recipe_food.food.price * recipe_food.quantity
     end
 
     result
   end
-
 end

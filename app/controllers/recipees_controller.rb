@@ -8,7 +8,7 @@ class RecipeesController < ApplicationController
 
   # GET /recipees/1 or /recipees/1.json
   def show
-  @recipe_foods = RecipeFood.where(recipee_id: params[:id])
+    @recipe_foods = RecipeFood.where(recipee_id: params[:id])
   end
 
   # GET /recipees/new
@@ -70,5 +70,4 @@ class RecipeesController < ApplicationController
   def recipee_public_params
     params.require(:recipee).permit(:public)
   end
-
 end
