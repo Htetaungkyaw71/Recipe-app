@@ -1,0 +1,44 @@
+.public_btn {
+  color: black;
+  background-color: rgb(47, 255, 57);
+  border-radius: 50px;
+  padding: 5px 10px 5px 10px;
+  cursor: pointer;
+}
+
+.private_btn {
+  color: white;
+  background-color: gray;
+  cursor: pointer;
+  padding: 5px 10px 5px 10px;
+  border-radius: 50px;
+}
+
+.recipe_form {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.show_input {
+  display: inline;
+  margin-left: 10px;
+}
+
+.show_table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.show_td,
+.show_th {
+  border: 1px solid #ddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.show_tr:nth-child(even) {
+  background-color: #ddd;
+}
