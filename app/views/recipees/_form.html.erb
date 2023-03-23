@@ -15,22 +15,22 @@
 
     <div class="input">
       <%= form.label :name, style: "display: block" %>
-      <%= form.text_field :name %>
+      <%= form.text_field :name, class: "form-control" %>
     </div>
 
     <div class="input">
       <%= form.label :preparation_time, style: "display: block" %>
-      <%= form.number_field :preparation_time %>
+      <%= form.number_field :preparation_time, class: "form-control" %>
     </div>
 
     <div class="input">
       <%= form.label :cooking_time, style: "display: block" %>
-      <%= form.number_field :cooking_time %>
+      <%= form.number_field :cooking_time, class: "form-control" %>
     </div>
 
     <div class="input">
       <%= form.label :description, style: "display: block" %>
-      <%= form.text_area :description %>
+      <%= form.text_area :description, class: "form-control" %>
     </div>
 
     <div class="input">
@@ -39,7 +39,7 @@
     </div>
 
     <div class="input">
-      <%= form.submit %>
+      <%= form.submit "Create Recipe", class: "btn btn-primary" %>
     </div>
   <% end %>
 </div>

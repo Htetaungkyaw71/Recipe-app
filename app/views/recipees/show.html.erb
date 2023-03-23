@@ -1,11 +1,11 @@
-<p style="color: green; text-align:center"><%= notice %></p>
+
 <div>
 <%= render 'shared/navbar'%>
 </div>
 
 <div class="show_container">
 <%= render @recipee %>
-
+<% if can? :create, @recipee %>
 <div class="recipe_form">
 
   <%= form_with(
@@ -28,7 +28,7 @@
 
   <div class="show_input">
    <%= form.label :quantity %>
-    <%= form.number_field :quantity %>
+    <%= form.number_field :quantity, class: "quantity" %>
   </div>
  
   <div class="show_input">
@@ -36,10 +36,13 @@
     <%= form.collection_select(:food_id, Food.all, :id, :name, prompt: true) %>
   </div>
   <div class="show_input">
-    <%= form.submit  "Add ingredient" %>
+    <%= form.submit  "Add ingredient", class: "btn btn-primary" %>
   </div>
 <% end %>
 </div>
+
+<% end %>
+
 
 <hr>
 
@@ -56,7 +59,9 @@
     <td class="show_td"> <%= recipe_food.quantity %> <%= recipe_food.food.measurement_unit %></td>
     <td class="show_td">$ <%= recipe_food.food.price * recipe_food.quantity  %></td>
     <td class="show_td">
-        <%= button_to "Remove", recipee_recipe_food_path(@recipee,recipe_food) , method: :delete %>
+    <% if can? :destroy, @recipee %>
+        <%= button_to "Remove", recipee_recipe_food_path(@recipee,recipe_food) , method: :delete, class: "btn btn-outline-danger"  %>
+    <% end %>
     </td>
   </tr>
     <% end %>

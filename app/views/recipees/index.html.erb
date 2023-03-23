@@ -1,16 +1,19 @@
-<p style="color: green"><%= notice %></p>
 <%= render 'shared/navbar'%>
+
 
 <div id="recipees">
 <div>
 <%= link_to "New recipee", new_recipee_path %>
   <h1>Recipees</h1>
   <% @recipees.each do |recipee| %>
-
-  <div class="recipe_card">
+<% if can? :read, recipee %>
+  <div class="recipe_card ">
       <div>
       <strong> <%= recipee.name %></strong>
-        <%= button_to "Remove", recipee, method: :delete %>
+      <% if can? :destroy, recipee %>
+        <%= button_to "Remove", recipee, method: :delete, class: "btn btn-outline-danger" %>
+      <% end %>
+     
       </div>
   
       <p>
@@ -25,6 +28,8 @@
   </div>
 
   <% end %>
+<% end %>
+
 </div>
 
 </div>
