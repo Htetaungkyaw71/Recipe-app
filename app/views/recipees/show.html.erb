@@ -37,13 +37,18 @@
   </div>
   <div class="show_input">
     <%= form.submit  "Add ingredient", class: "btn btn-primary" %>
+    
   </div>
 <% end %>
-</div>
-
 <% end %>
 
+</div>
 
+<button class="btn btn-primary text-white">
+    <% if @recipee.user == current_user %>
+      <%= link_to "Generate shoping list", shopping_list_path(@recipee.id), class: "text-white"%>
+    <% end %>
+  </button>
 <hr>
 
 <table class="show_table">
