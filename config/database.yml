@@ -57,18 +57,18 @@ development:
   database: recipe_development
   adapter: postgresql
   encoding: unicode
-  pool: 5
-  username: myapp
-  password: password
+  # pool: 5
+  # username: myapp
+  # password: password
 
 test:
   <<: *default
   adapter: postgresql
   encoding: unicode
   database: recipe_test
-  pool: 5
-  username: myapp
-  password: password
+  # pool: 5
+  # username: myapp
+  # password: password
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
