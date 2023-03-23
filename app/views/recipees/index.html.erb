@@ -4,7 +4,7 @@
 <div id="recipees">
 <div>
 <%= link_to "New recipee", new_recipee_path %>
-  <h1>Recipees</h1>
+  <h1>Recipes</h1>
   <% @recipees.each do |recipee| %>
 <% if can? :read, recipee %>
   <div class="recipe_card ">
