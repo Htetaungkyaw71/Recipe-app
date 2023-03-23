@@ -3,15 +3,16 @@ require 'rails_helper'
 RSpec.describe Recipee, type: :system do
   describe 'Test Public Recipee index View' do
     before(:each) do
-        @user = User.create(name: "ok")
-        @recipe = Recipee.create(user_id: @user.id ,name:"hello", preparation_time: 2, cooking_time: 1, description:"This is description", public: true)
-      visit("/public_recipes")
+      @user = User.create(name: 'ok')
+      @recipe = Recipee.create(user_id: @user.id, name: 'hello', preparation_time: 2, cooking_time: 1,
+                               description: 'This is description', public: true)
+      visit('/public_recipes')
     end
-    it "I can see recipe name" do
-      expect(page).to have_content( @recipe.name)
+    it 'I can see recipe name' do
+      expect(page).to have_content(@recipe.name)
     end
     it 'I can see owner name' do
-      expect(page).to have_content( @user.name)
+      expect(page).to have_content(@user.name)
     end
     it 'I can see Total food.' do
       expect(page).to have_content(@recipe.foods.length)
