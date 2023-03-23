@@ -1,0 +1,39 @@
+ <div class='mx-4'>
+    <%= link_to recipee_path do %>
+      Back
+    <% end %>
+<h2 class="d-flex justify-content-center">Shopping List</h2>
+ <% sum = 0 %>
+<% totalcount = 0 %>
+ <% @shopping_lists.each do |shopping_list| %>
+ <% value = shopping_list.quantity * shopping_list.food.price%>
+<% sum += value %>
+      <% totalcount += 1%>
+ <%end%>
+<div class="d-flex mx-3 justify-content-around">
+  <h3 class="text-2xl">Total value  of food needed:   $<%= sum %> </h3>
+  <h3 class="text-2xl"> Amount of food: <%= totalcount %></h3>
+</div>
+<div class="flex justify-center">
+  <table class="show_table">
+  <thead class="border-b">
+      <tr class="show_tr">
+        <th class="show_th">Food</th>
+        <th class="show_th">Quantity</th>
+        <th class="show_th">Unit Price</th>
+        <th class="show_th">Value</th>
+      </tr>
+    </thead>
+    <tbody>
+     <% @shopping_lists.each do |shopping_list| %>
+      <tr class="show_tr">
+        <td class="show_td"><%= shopping_list.food.name%></td>
+        <td class="show_td"><%= shopping_list.quantity%><%= shopping_list.food.measurement_unit%></td>
+        <td class="show_td">$<%= shopping_list.food.price%></td>
+        <td class="show_td">$<%= shopping_list.quantity * shopping_list.food.price%></td>
+      </tr>
+    <%end%>
+    </tbody>
+  </table>
+</div>
+</div>

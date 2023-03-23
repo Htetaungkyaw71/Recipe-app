@@ -2,7 +2,6 @@ class RecipeesController < ApplicationController
   load_and_authorize_resource
   before_action :set_recipee, only: %i[show update destroy]
 
-
   # GET /recipees or /recipees.json
   def index
     @recipees = Recipee.all

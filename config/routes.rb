@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
    root "users#index"
    get "/public_recipes", to: "public_recipes#index"
+
+   get '/shopping_list/:id', to: 'shopping_list#index', as: 'shopping_list'
 end

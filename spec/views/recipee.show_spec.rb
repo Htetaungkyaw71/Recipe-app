@@ -39,7 +39,5 @@
 #         expect(page).to have_content("Actions")
 #     end
 
-
-
 #   end
 # end
