@@ -29,7 +29,6 @@ RSpec.describe Recipee, type: :model do
     expect(subject).to_not be_valid
   end
 
-
   it 'description should not too long' do
     subject.description = 'a' * 600
     expect(subject).to_not be_valid

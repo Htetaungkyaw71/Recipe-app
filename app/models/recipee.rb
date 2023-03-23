@@ -8,7 +8,6 @@ class Recipee < ApplicationRecord
   validates :preparation_time, comparison: { greater_than: 0 }, numericality: { only_integer: true }
   validates :description, length: { maximum: 500 }
 
-
   after_save :total
 
   def total
