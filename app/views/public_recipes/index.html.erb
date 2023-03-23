@@ -1,5 +1,6 @@
-<p style="color: green"><%= notice %></p>
+
 <%= render 'shared/navbar'%>
+
 <div id="recipees">
 <div>
 <%= link_to "New recipee", new_recipee_path %>
@@ -16,7 +17,6 @@
       <p>
           <strong>Total Food Items : <%= recipee.foods.length %></strong>
           <br>
-           <br>
           <strong>Total Price : $<%= recipee.total %> </strong>
       </p>
 

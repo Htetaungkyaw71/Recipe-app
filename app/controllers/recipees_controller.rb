@@ -1,5 +1,7 @@
 class RecipeesController < ApplicationController
+  load_and_authorize_resource
   before_action :set_recipee, only: %i[show update destroy]
+
 
   # GET /recipees or /recipees.json
   def index
@@ -20,7 +22,7 @@ class RecipeesController < ApplicationController
   def create
     @recipee = Recipee.new(recipee_params)
     @recipee.user_id = current_user.id
-
+    p recipee_params
     respond_to do |format|
       if @recipee.save
         format.html { redirect_to recipee_url(@recipee), notice: 'Recipee was successfully created.' }
@@ -39,7 +41,7 @@ class RecipeesController < ApplicationController
         format.html { redirect_to recipee_url(@recipee), notice: 'Recipee was successfully updated.' }
         format.json { render :show, status: :ok, location: @recipee }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { redirect_to recipee_url(@recipee), status: :unprocessable_entity }
         format.json { render json: @recipee.errors, status: :unprocessable_entity }
       end
     end

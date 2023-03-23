@@ -20,10 +20,20 @@
     </p>
   </div>
 
-     <%= button_to recipee_path(recipee), method: :put,  params: { recipee: { public: !recipee.public}}, class: recipee.public ? 'public_btn' : 'private_btn' do %>
+  <% if can? :edit, recipee %>
+   <%= button_to recipee_path(recipee), method: :put, 
+    params: { 
+      recipee: { 
+        public: !recipee.public,
+      }
+    
+    }, class: recipee.public ? 'public_btn' : 'private_btn' do %>
       <span class="font-bold"> <%= recipee.public ? 'Public' : 'Private'  %></span>
     <% end %>
   </div>
+<% end %>
+
+    
 
 
 </div>

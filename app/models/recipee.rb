@@ -4,10 +4,10 @@ class Recipee < ApplicationRecord
   has_many :foods, through: :recipe_foods, dependent: :destroy
 
   validates :name, presence: true, length: { maximum: 50 }
-  validates :cooking_time, comparison: { greater_than: 0 },  numericality: { only_integer: true }
-  validates :preparation_time, comparison: { greater_than: 0 },  numericality: { only_integer: true }
+  validates :cooking_time, comparison: { greater_than: 0 }, numericality: { only_integer: true }
+  validates :preparation_time, comparison: { greater_than: 0 }, numericality: { only_integer: true }
   validates :description, length: { maximum: 500 }
-  validates :public , presence: true
+
 
   after_save :total
 
