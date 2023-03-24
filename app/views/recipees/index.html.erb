@@ -9,7 +9,10 @@
 <% if can? :read, recipee %>
   <div class="recipe_card ">
       <div>
-      <strong> <%= recipee.name %></strong>
+      <a href="<%= "/recipees/#{recipee.id}" %>">
+        <strong> <%= recipee.name %></strong>
+      </a>
+
       <% if can? :destroy, recipee %>
         <%= button_to "Remove", recipee, method: :delete, class: "btn btn-outline-danger" %>
       <% end %>
@@ -23,9 +26,7 @@
   </div>
 
 
-  <div class="show">
-  <%= link_to "Show detail", recipee %>
-  </div>
+
 
   <% end %>
 <% end %>

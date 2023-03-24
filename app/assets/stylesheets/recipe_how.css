@@ -1,9 +1,10 @@
 .public_btn {
-  color: black;
-  background-color: rgb(47, 255, 57);
+  color: rgb(255, 255, 255);
+  background-color: rgb(32, 223, 41);
   border-radius: 50px;
   padding: 5px 10px 5px 10px;
   cursor: pointer;
+  border: none;
 }
 
 .private_btn {
@@ -12,6 +13,7 @@
   cursor: pointer;
   padding: 5px 10px 5px 10px;
   border-radius: 50px;
+  border: none;
 }
 
 .recipe_form {

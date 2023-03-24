@@ -43,12 +43,11 @@
 <% end %>
 
 </div>
-
-<button class="btn btn-primary text-white">
     <% if @recipee.user == current_user %>
-      <%= link_to "Generate shoping list", shopping_list_path(@recipee.id), class: "text-white"%>
-    <% end %>
-  </button>
+    <button class="btn btn-primary text-white">
+      <%= link_to "Generate shoping list", shopping_list_path(@recipee.id), class: "text-white"%> 
+    </button>
+   <% end %>
 <hr>
 
 <table class="show_table">
