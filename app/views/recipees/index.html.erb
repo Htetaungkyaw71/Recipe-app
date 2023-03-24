@@ -1,0 +1,40 @@
+<%= render 'shared/navbar'%>
+
+
+<div id="recipees">
+<div>
+<%= link_to "New recipee", new_recipee_path %>
+  <h1>Recipes</h1>
+  <% @recipees.each do |recipee| %>
+<% if can? :read, recipee %>
+  <div class="recipe_card ">
+      <div>
+      <a href="<%= "/recipees/#{recipee.id}" %>">
+        <strong> <%= recipee.name %></strong>
+      </a>
+
+      <% if can? :destroy, recipee %>
+        <%= button_to "Remove", recipee, method: :delete, class: "btn btn-outline-danger" %>
+      <% end %>
+     
+      </div>
+  
+      <p>
+        <%= recipee.description %>
+      </p>
+
+  </div>
+
+
+
+
+  <% end %>
+<% end %>
+
+</div>
+
+</div>
+
+
+
+

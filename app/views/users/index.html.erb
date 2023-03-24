@@ -1,0 +1,13 @@
+<div>
+<%= render 'shared/navbar'%>
+</div>
+
+<div class="list-users"> 
+<% @users.each do |user| %>
+     <%= link_to(user) do %> 
+    <div class="details"> 
+   <h3 class="name"><%= user.name %></h3> 
+ </div>
+    <%end%> 
+    <%end%> 
+</div>

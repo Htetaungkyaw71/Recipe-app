@@ -1,0 +1,33 @@
+
+<%= render 'shared/navbar'%>
+
+<div id="recipees">
+<div>
+<%= link_to "New recipee", new_recipee_path %>
+  <h1>Public Recipes</h1>
+  <% @recipees.each do |recipee| %>
+  <div class="recipe_card">
+      <div>
+      <strong> <%= recipee.name %></strong>
+        <p>
+        By <%= recipee.user.name %>
+        </p>
+      </div>
+  
+      <p>
+          <strong>Total Food Items : <%= recipee.foods.length %></strong>
+          <br>
+          <strong>Total Price : $<%= recipee.total %> </strong>
+      </p>
+
+  </div>
+    <div class="show">
+  <%= link_to "Show detail", recipee %>
+  </div>
+
+
+  <% end %>
+</div>
+
+</div>
+

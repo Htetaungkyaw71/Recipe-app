@@ -1,0 +1,33 @@
+<table class="show_table">
+  <thead class="border-b">
+      <tr class="show_tr">
+        <th class="show_th">Food</th>
+        <th class="show_th">Measured Units</th>
+        <th class="show_th">Quantity</th>
+        <th class="show_th">Price</th>
+        <th class="show_th">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% if @foods.count == 0 %>
+                <tr class="show_tr Alert alert-warning text-center fs-3">                   
+                    <td colspan="5">
+                        <span>No Food Registered</span>
+                    </td>                        
+                </tr>
+            <% else %>
+                <% count = 0 %>
+                <% @foods.each  do |food| %>
+                    <% if can? :manage, food %>
+       <tr class="show_tr">
+                            <td class="show_td"><%= food.name %></td>
+                            <td class="show_td"><%= food.measurement_unit %></td>
+                            <td class="show_td"><%= food.quantity %></td>
+                            <td class="show_td">$<%= food.price %></td>
+                            <td class="show_td"><%= button_to "delete", food_path(:id => food.id), :method => :delete, class: "btn btn-outline-danger" %></td>                 
+                        </tr>
+                    <% end %>
+                <% end %> 
+            <% end %>  
+    </tbody>
+  </table>

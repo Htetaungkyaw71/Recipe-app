@@ -1,0 +1,17 @@
+.auth_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+}
+
+.food_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.link {
+    margin-top: 10px;
+}

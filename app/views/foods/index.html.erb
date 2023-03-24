@@ -1,0 +1,14 @@
+<div>
+<%= render 'shared/navbar'%>
+<div class='d-flex justify-content-between mt-3 align-items-center px-3'>
+<h1>Foods</h1>
+<button class="btn btn-primary">
+<%= link_to "Add Food", new_food_path, class: "add_food" %>
+</button>
+</div>
+
+<div id="foods">
+    <%= render 'food' %>   
+</div>
+
+

@@ -1,0 +1,16 @@
+<%= render 'shared/navbar'%>
+
+<div class="food_container ">
+  <div>
+
+<h1>New food</h1>
+
+<%= render "form", food: @food %>
+
+<br>
+
+<div>
+  <%= link_to "Back to foods", foods_path %>
+</div>
+</div>
+</div>
