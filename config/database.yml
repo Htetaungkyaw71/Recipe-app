@@ -92,6 +92,4 @@ test:
 #
 production:
   <<: *default
-  database: recipe_production
-  # username: recipe
-  password: <%= ENV["RECIPE_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
